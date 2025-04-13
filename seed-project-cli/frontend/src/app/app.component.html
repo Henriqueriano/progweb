@@ -2,7 +2,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <app-message></app-message>
+      <!-- Input with Signal Binding -->
+      <app-message-signal [messageVarClasse]="messageBinding" (outputMessage)="messageBinding.content = $event"></app-message-signal>
+
+      <!-- Input with Input -->
+      <app-message [messageVarClasse]="messageBinding" [hidden]="messageInputHidden" ></app-message>
     </div>
   </div>
 </div>
