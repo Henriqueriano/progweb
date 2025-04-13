@@ -1,0 +1,12 @@
+<!-- Estrututa do componente de mensagens -->
+<article class="panel panel-default">
+    <input type="text" [(ngModel)] = "message.content">
+    <input type="text" [(ngModel)] = "message.author">
+    <div class="panel-body">
+      {{message.content}}
+    </div>
+    
+    <footer class="panel-footer">
+      {{message.author}}
+    </footer>
+  </article>
