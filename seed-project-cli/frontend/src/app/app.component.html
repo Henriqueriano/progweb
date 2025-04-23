@@ -2,11 +2,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <!-- Input with Signal Binding -->
-      <app-message-signal [messageVarClasse]="messageBinding" (outputMessage)="messageBinding.content = $event"></app-message-signal>
-
-      <!-- Input with Input -->
-      <app-message [messageVarClasse]="messageBinding" [hidden]="messageInputHidden" ></app-message>
+        <message-input></message-input>
+        <!-- issue, track gives me a console error, bitch ngForTrack -->
+        <message-list *ngFor="let msg of messageS" [messageVarClasse]="msg" ></message-list>
     </div>
-  </div>
+ </div>
 </div>
