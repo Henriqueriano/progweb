@@ -12,7 +12,7 @@ import { MessageService } from '../services/message.service';
 export class MessageListComponent implements OnInit
 {
     messageVarClasse = input<Message>(new Message('',''));
-    messages : Message[] = [ new Message('Xereca','peida n')]
+    messages : Message[] = [];
     constructor(private _messageService : MessageService) {}
     ngOnInit(): void
     {
@@ -24,6 +24,10 @@ export class MessageListComponent implements OnInit
     }
     delete()
     {
-      console.log('foo!');
+      try
+      {
+        //this._messageService.deleteMessage(currentMessage);
+        console.log('Mensagem deletada com exito!');
+      } catch (e) { console.log(`Erro ao deletar mensage: ${e}`);}
     }
 }

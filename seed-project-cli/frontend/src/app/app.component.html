@@ -2,17 +2,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <!-- Input with Signal Binding -->
-        <message-input></message-input>
-        @for(msg of messages; track $index)
-        {
-          <message-list [messageVarClasse] = 'msg' (outputMessage)='msg.content'></message-list>
-        } @empty
-        {
-          <div class='text-center opacity-50'>
-            <p><b>Não existem mensagens!</b></p>
-          </div>
-        }
-        </div>
+      <app-header></app-header>
+      <!-- <app-message></app-message> -->
+    </div>
   </div>
 </div>

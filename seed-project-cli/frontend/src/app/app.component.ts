@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { MessageListComponent } from './message-list/message-list.component';
-import { MessageInputComponent } from './message-input/message-input.component';
 import { Message } from './models/message.model';
 import { CommonModule } from '@angular/common';
 import { MessageService } from './services/message.service';
+import { MessageComponent } from './message/message.component';
+import { HeaderComponent } from './header.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [MessageListComponent, MessageInputComponent, RouterOutlet, CommonModule],
+  imports: [MessageComponent, HeaderComponent, RouterOutlet, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   providers: [MessageService]

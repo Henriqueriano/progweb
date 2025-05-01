@@ -1,16 +1,19 @@
-import { Component, Input } from "@angular/core";
-import { Message } from "../models/message.model";
-import { FormsModule } from "@angular/forms";
-
-@Component({
-        selector: 'app-message',
-        styleUrl: 'message.component.css',
-        templateUrl: 'message.component.html',
-        standalone: true,
-        imports:[ FormsModule ]
-    })
-
-export class MessageComponent 
-{
-    @Input() messageVarClasse = new Message("","");
-}
+import {Component} from '@angular/core';
+import {MessageListComponent} from '../message-list/message-list.component';
+import {MessageInputComponent} from '../message-input/message-input.component';
+@Component(
+  {
+    selector: 'app-message',
+    standalone: true,
+    imports: [MessageListComponent,MessageInputComponent],
+    template: `
+      <div class='row'>
+        <message-input></message-input>
+      </div>
+      <hr/>
+      <div class='row'>
+        <message-list></message-list>
+      </div>
+    `
+  })
+export class MessageComponent {}
