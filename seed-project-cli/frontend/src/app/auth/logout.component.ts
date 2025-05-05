@@ -10,6 +10,6 @@ import { Component } from '@angular/core';
 export class LogoutComponent
 {
   onLogout() {
-
+    console.log("Banana da terra cozida é muito bom!");
   }
 }
