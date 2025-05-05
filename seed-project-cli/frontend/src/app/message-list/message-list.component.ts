@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, input } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, input } from '@angular/core';
 import { Message } from '../models/message.model';
 import { CommonModule } from '@angular/common';
 import { MessageService } from '../services/message.service';
@@ -12,6 +12,11 @@ import { MessageService } from '../services/message.service';
 export class MessageListComponent implements OnInit
 {
     messageVarClasse = input<Message>(new Message('',''));
+    
+    // + Gambiarra
+    @Output() outputMessage = new EventEmitter<string>();
+    // Fim da Gabiarra
+
     messages : Message[] = [];
     constructor(private _messageService : MessageService) {}
     ngOnInit(): void
