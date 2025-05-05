@@ -27,6 +27,7 @@ export class MessageInputComponent
     console.log(form);
     const message : Message = new Message(form.value.myContentngForm, 'Daniel H');
     this._messageService.addMessage(message);
+    console.log(this._messageService.getMessage());
     form.resetForm();
   }
  }

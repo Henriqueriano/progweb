@@ -12,7 +12,7 @@ import {MessageInputComponent} from '../message-input/message-input.component';
       </div>
       <hr/>
       <div class='row'>
-        <message-list></message-list>
+        <message-list ></message-list>
       </div>
     `
   })
