@@ -8,29 +8,23 @@ import { Message } from '../models/message.model';
     selector: 'app-message',
     standalone: true,
     imports: [MessageListComponent,MessageInputComponent],
-    template: `
-      <div class='row'>
-        <message-input></message-input>
-      </div>
-      <hr/>
-      <div class='row'>
-      @for (msg of messages; track msg) 
-      {
-        <message-list [messageVarClasse]="msg" (outputMessage) ="msg.content = $event"></message-list>
-      } @empty {
-        Não há mensagens!
-      }
-      </div>
-    `
+    templateUrl: './message.component.html'
   })
 export class MessageComponent implements OnInit
 {
   // Gambiarra:
   _messageService = inject(MessageService);
-  messages : Message[] = [];
+  messages : Message[] = []; 
   ngOnInit() 
   {
-    this.messages = this._messageService.getMessage();
+    this._messageService.getMessage()
+    .subscribe(
+      {next: (r) => { this.messages = r;},
+      error: (r) => {console.log(r);}});
+      
+      // Delay ao carregar novas mensagens
+      // Ficar sempre recarregando o componente para garantir que sempre chegarão novas mensagens
+      setTimeout(() => this.ngOnInit(), 1000);  
   }
   // Fim da Gambira (A Aline Deixou) 
   

@@ -12,27 +12,36 @@ import { MessageService } from '../services/message.service';
 export class MessageListComponent implements OnInit
 {
     messageVarClasse = input<Message>(new Message('',''));
-    
-    // + Gambiarra
     @Output() outputMessage = new EventEmitter<string>();
-    // Fim da Gabiarra
-
     messages : Message[] = [];
     constructor(private _messageService : MessageService) {}
     ngOnInit(): void
     {
-      this.messages = this._messageService.getMessage();
+      this._messageService.getMessage()
+      .subscribe({
+          next: (dataSucess) => 
+            {
+              this.messages = dataSucess;
+            },
+          error: (dataErr) => 
+            {
+              console.log(dataErr);
+            }});
+            console.log(this.messageVarClasse);
     }
     edit()
     {
       console.log('foo!');
     }
-    delete()
+    delete(messageId: any)
     {
       try
       {
-        //this._messageService.deleteMessage(currentMessage);
-        console.log('Mensagem deletada com exito!');
-      } catch (e) { console.log(`Erro ao deletar mensage: ${e}`);}
+        this._messageService.deleteMessage(messageId);
+      } 
+      catch (e) 
+      { 
+        console.log(JSON.stringify({'message':'Erro ao deletar mensagem', 'messageId': messageId ,'erro': e}));
+      }
     }
 }

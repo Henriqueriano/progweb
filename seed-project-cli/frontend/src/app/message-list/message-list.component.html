@@ -1,20 +1,17 @@
-<!-- Estrututa do componente de mensagens -->
 <br/>
-<!--<input type="text" [(ngModel)] = "messageVarClasse().content">
-<input type="text" [(ngModel)] = "messageVarClasse().username"> -->
-
 <article class="panel panel-default">
     <div class="panel-body">
       {{messageVarClasse().content}}
     </div>
-
     <footer class="panel-footer">
       <div class="author">
         {{messageVarClasse().username}}
       </div>
     </footer>
+    <input type="hidden" [value]="messageVarClasse().messageId">
+    <input type="hidden" [value]="messageVarClasse().userId">
     <div class="config">
       <button class="btn btn-primary" (click)='edit()'>Edit</button>
-      <button class="btn btn-danger"  (click)='delete()'>Delete</button>
+      <button class="btn btn-danger"  (click)='delete(messageVarClasse().messageId)'>Delete</button>
     </div>
   </article>

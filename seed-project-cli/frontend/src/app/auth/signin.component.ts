@@ -13,7 +13,7 @@ export class SigninComponent implements OnInit
   constructor(private fb: FormBuilder) {}
   ngOnInit(): void {
     this.myFormIn = this.fb.group({
-      emailTS: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
+      emailTS: ['', [Validators.required, Validators.email]],
       passwordTS: [null, Validators.compose([ Validators.required, Validators.minLength(4), this.minusculoFValidator])]
     });
   }

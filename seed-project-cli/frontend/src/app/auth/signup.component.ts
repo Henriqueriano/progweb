@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validator, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 @Component(
   {
     selector: 'app-signup',
@@ -10,10 +11,11 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validator, Validators } fr
 
   export class SignupComponent implements OnInit 
   {
+    constructor(public _authService: AuthService ) {}
     myForm! : FormGroup;
     ngOnInit(): void {
       this.myForm = new FormGroup({
-        firsNameTS: new FormControl(null, Validators.required),
+        firstNameTS: new FormControl(null, Validators.required),
         lastNameTS: new FormControl(null, [
          Validators.required,
          Validators.minLength(4), 
@@ -21,14 +23,14 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validator, Validators } fr
         ]),
         emailTS: new FormControl(null, [
           Validators.required,
-          Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4]')
+          Validators.email
         ]),
         passwordTS: new FormControl(null, Validators.required)
       });
     }
     onSubmit()
     {
-      console.log(this.myForm);
+      this._authService.registerAccount(this.myForm);
       this.myForm.reset();
     }
   }

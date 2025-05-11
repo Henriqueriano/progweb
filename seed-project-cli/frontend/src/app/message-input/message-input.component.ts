@@ -1,7 +1,7 @@
 import { FormsModule, NgForm } from '@angular/forms';
 import { Component, inject } from '@angular/core';
 import { MessageService } from '../services/message.service';
-import { Message } from '../models/message.model'
+import { Message } from '../models/message.model';
 @Component(
   {
       selector: 'message-input',
@@ -15,19 +15,15 @@ import { Message } from '../models/message.model'
 export class MessageInputComponent
 {
   private _messageService = inject(MessageService);
-  onSave(textoConsole: string)
-  {
-      const message : Message = new Message(textoConsole, 'Daniel H');
-      this._messageService.addMessage(message);
-      console.log(this._messageService.getMessage());
-  }
   onSubmit(form: NgForm)
   {
-    console.log('MessageInputComponent:');
-    console.log(form);
     const message : Message = new Message(form.value.myContentngForm, 'Daniel H');
-    this._messageService.addMessage(message);
-    console.log(this._messageService.getMessage());
+    this._messageService.addMessage(message).subscribe({error: (dadosErro: any) => 
+        {
+          console.log(`$== !!Error (subscribe): - ${dadosErro.info_extra} ==`)
+          console.log(dadosErro);
+        }
+    });
     form.resetForm();
   }
  }
