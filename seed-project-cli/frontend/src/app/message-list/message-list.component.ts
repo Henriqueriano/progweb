@@ -27,7 +27,6 @@ export class MessageListComponent implements OnInit
             {
               console.log(dataErr);
             }});
-            console.log(this.messageVarClasse);
     }
     edit()
     {

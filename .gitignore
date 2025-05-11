@@ -136,4 +136,4 @@ dist
 .pnp.*
 
 # Data Files (pseudo Bd)
-/data
+data/

@@ -19,13 +19,8 @@ export class MessageService
     }
     deleteMessage(messageId: string)
     {
-      var a = `${this.BASE_URL}/messages/deleteMessage/${messageId}`;
-      console.log(a);
-      this._http.delete(a).
-      subscribe(
-        {
-          next: (r) => {console.log('Sucesso')}
-        });
+      this._http.delete(`${this.BASE_URL}/messages/deleteMessage/${messageId}`).
+      subscribe({});
     }
     getMessage() : Observable<Message[]>
     {
