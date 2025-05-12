@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-logout',
   standalone: true,
@@ -10,7 +11,9 @@ import { Component } from '@angular/core';
 })
 export class LogoutComponent
 {
+  constructor(public _cookieService: CookieService) {}
   onLogout() {
-    console.log("Banana da terra cozida é muito bom!");
+    this._cookieService.deleteAll();
+    console.log("Você fez logOut!");
   }
 }

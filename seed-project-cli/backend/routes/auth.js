@@ -12,5 +12,17 @@ router.post('/registerAccount', async (req,res) =>
             res.status(404).json({'message': 'Cannot encounter user!', 'error': error});
         }
     });
-
+router.get('/getUserInfo/:userMail', async (req, res) => 
+    {
+        try 
+        {
+            const user = await User.findOne({email: req.params.userMail});
+            res.status(200).json(user);
+        } 
+        catch (error) 
+        {
+            res.status(500);
+        }
+        
+    });
 module.exports = router;

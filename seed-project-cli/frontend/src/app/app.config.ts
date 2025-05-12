@@ -4,6 +4,7 @@ import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
 import { MessageService } from './services/message.service';
 import { AuthService } from './services/auth.service';
+import { CookieService } from 'ngx-cookie-service';
 export const appConfig: ApplicationConfig = {
   providers: 
   [
@@ -11,7 +12,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     {provide: MessageService},
     {provide: AuthService},
-    {provide: Router},
+    {provide: Router}
   ]
 };
 

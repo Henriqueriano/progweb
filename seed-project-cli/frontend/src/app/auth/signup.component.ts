@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validator, Validators } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 @Component(
   {
@@ -11,6 +12,7 @@ import { AuthService } from '../services/auth.service';
 
   export class SignupComponent implements OnInit 
   {
+    userLogedIn : any = '-';
     constructor(public _authService: AuthService ) {}
     myForm! : FormGroup;
     ngOnInit(): void {
@@ -28,7 +30,7 @@ import { AuthService } from '../services/auth.service';
         passwordTS: new FormControl(null, Validators.required)
       });
     }
-    onSubmit()
+    async onSubmit() 
     {
       this._authService.registerAccount(this.myForm);
       this.myForm.reset();
