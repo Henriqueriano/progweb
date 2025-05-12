@@ -34,13 +34,14 @@ export class MessageListComponent implements OnInit
     }
     delete(messageId: any)
     {
-      try
-      {
-        this._messageService.deleteMessage(messageId);
-      } 
-      catch (e) 
-      { 
-        console.log(JSON.stringify({'message':'Erro ao deletar mensagem', 'messageId': messageId ,'erro': e}));
-      }
+      if(confirm('Quer mesmo apagar a mensagem?'))
+        try
+        {
+          this._messageService.deleteMessage(messageId);
+        } 
+        catch (e) 
+        { 
+          console.log(JSON.stringify({'message':'Erro ao deletar mensagem', 'messageId': messageId ,'erro': e}));
+        }
     }
 }

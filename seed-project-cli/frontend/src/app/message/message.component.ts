@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
     selector: 'app-message',
     standalone: true,
     imports: [MessageListComponent,MessageInputComponent],
-    templateUrl: './message.component.html'
+    templateUrl: './message.component.html',
+    styleUrl: './message.component.css'
   })
 export class MessageComponent implements OnInit
 {

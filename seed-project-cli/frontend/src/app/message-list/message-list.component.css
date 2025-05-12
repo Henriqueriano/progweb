@@ -28,3 +28,23 @@
 {
     margin-right: 10px;
 }
+.btn 
+{
+    color: white;
+    font-style: italic;
+}
+
+#btn-edit:hover
+{
+    color: blue;
+}
+
+#btn-del:hover
+{
+    color: red;
+}
+#author
+{
+    color: rgb(107, 107, 107);
+    font-style: italic;
+}

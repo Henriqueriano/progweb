@@ -1,0 +1,10 @@
+#message-list 
+{
+    height: 30rem;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+.card 
+{
+    background-color: rgba(90, 90, 90, 0.5);
+}

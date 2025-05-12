@@ -10,9 +10,9 @@ export class MessageService
     private _http = inject(HttpClient);
     addMessage(message: Message)
     {
-      console.log(message);
-      this.messages.push(message);
-      console.log(this.messages);
+      // console.log(message);
+      // this.messages.push(message);
+      // console.log(this.messages);
       return this._http.post<any>(`${this.BASE_URL}/messages/saveMessage`, message).pipe(
         catchError((e) => this.errorHandler(e, 'addMessage()'))
       );
@@ -29,7 +29,7 @@ export class MessageService
           const messagesRecieve = r.objsMessageRecuperadas;
           let castedMessages : Message[] = [];
           for (let msg of messagesRecieve)
-            castedMessages.push(new Message(msg.content, 'Daniel H', '' ,msg._id));
+            castedMessages.push(new Message(msg.content, msg.username, '' ,msg._id));
           this.messages = [...castedMessages]; 
           r.objsMessageRecuperadas = this.messages;
           return r.objsMessageRecuperadas;

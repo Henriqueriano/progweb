@@ -26,7 +26,6 @@ router.post('/saveMessage', async (req, res, next) =>
 router.delete('/deleteMessage/:messageId', async (req,res) => 
     {
         const messageId = req.params.messageId;
-        console.log(messageId);
         try {
             const message = await Message.find({_id: messageId});
             if (message == null) 

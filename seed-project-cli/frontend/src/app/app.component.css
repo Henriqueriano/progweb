@@ -1,0 +1,11 @@
+.container 
+{
+    border-color: black;
+    border-style: groove;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    height: 40rem;
+    color: white;
+}
+

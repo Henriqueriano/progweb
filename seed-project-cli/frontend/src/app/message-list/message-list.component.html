@@ -1,17 +1,19 @@
 <br/>
-<article class="panel panel-default">
+<article id="message-list" class="panel panel-default">
     <div class="panel-body">
-      {{messageVarClasse().content}}
+      <p style="color: white;">{{messageVarClasse().content}}</p>
     </div>
-    <footer class="panel-footer">
-      <div class="author">
-        {{messageVarClasse().username}}
+    <div class="row">
+      <div class="col-md-7">
+        <p id="author" class="my-1" style="color: white;">-> {{messageVarClasse().username}} <-</p>
       </div>
-    </footer>
-    <input type="hidden" [value]="messageVarClasse().messageId">
-    <input type="hidden" [value]="messageVarClasse().userId">
+      <div class="col-md-5">
+        <div class="d-flex flex-row-reverse">
+        <button id="btn-edit" class="btn" (click)='edit()'><b>Edit</b></button>
+        <button id="btn-del" class="btn"  (click)='delete(messageVarClasse().messageId)'><b>Delete</b></button>
+        </div>
+      </div>
+    </div>
     <div class="config">
-      <button class="btn btn-primary" (click)='edit()'>Edit</button>
-      <button class="btn btn-danger"  (click)='delete(messageVarClasse().messageId)'>Delete</button>
     </div>
   </article>

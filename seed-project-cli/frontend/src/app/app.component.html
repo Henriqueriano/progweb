@@ -1,10 +1,14 @@
 <br/>
-<div class="container">
+<div class="container my-1">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div id="main-content">
       <app-header></app-header>
       <br/>
       <router-outlet></router-outlet>
     </div>
   </div>
 </div>
+  <div class="text-center d-flex justify-content-center align-items-center">
+    <div  [style]="serverStatus ? 'background-color: green; width: 16px; height: 16px; border-radius: 10px; margin-top: 0.15rem' : 'background-color: red; width: 16px; height: 16x; border-radius: 10px; margin-top: 0.15rem'" ></div>
+    <h5 class="mx-2 my-1" style="color: white;"> {{serverStatus ? "ServerStatus: Online!" : "ServerStatus: Offline!"}} </h5>
+  </div>

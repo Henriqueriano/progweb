@@ -1,16 +1,31 @@
 <!-- Estrututa do componente de mensagens -->
-<div class='row'>
-  <message-input></message-input>
-</div>
-<hr />
-<div class='row'>
-  @for (msg of messages; track msg)
-  {
-  <message-list [messageVarClasse]="msg" (outputMessage)="msg.content = $event"></message-list>
-  <input type="hidden" (value)="msg.messageId">
-  <input type="hidden" (value)="msg.userId">
-  }
-  @empty {
-  <p> Não existem mensagens! </p>
-  }
+<div class="container">
+  <div class="row d-flex justify-content-between">
+    <div class='col-md-6 col-md-offset-2'>
+      <message-input></message-input>
+    </div>
+    <div class='col-lg-6 col-md-offset-2'>
+    <p><b>Mensagens:</b></p>
+    <div id="message-list" >
+    @if(messages.length > 0) {
+      <div class="card">
+          <div class="card-body">
+      @for (msg of messages; track msg)
+      {
+        <message-list [messageVarClasse]="msg" (outputMessage)="msg.content = $event"></message-list>
+      }
+          </div>
+      </div>
+    }
+    @else 
+    {
+        <div class="card">
+          <div class="card-body">
+            <p class="text-center my-5" style="color: white;"><b>Não existem novas mensagens!</b></p>
+          </div>
+        </div>
+    }
+    </div>
+    </div>
+  </div>
 </div>

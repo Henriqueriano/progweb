@@ -17,7 +17,7 @@ export class MessageInputComponent
   private _messageService = inject(MessageService);
   onSubmit(form: NgForm)
   {
-    const message : Message = new Message(form.value.myContentngForm, 'Daniel H');
+    const message : Message = new Message(form.value.myContentngForm, 'Anonymous User');
     this._messageService.addMessage(message).subscribe({error: (dadosErro: any) => 
         {
           console.log(`$== !!Error (subscribe): - ${dadosErro.info_extra} ==`)
