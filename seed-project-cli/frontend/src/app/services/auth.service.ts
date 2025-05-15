@@ -25,16 +25,8 @@ export class AuthService
         console.log(form);
         this._http.get<any>(`${this.BASE_URL}/auth/getUserInfo/${form.controls['emailTS'].value}`)
         .subscribe(async res =>  {
-            console.log(res.email, res.senha, form.controls['passwordTS'].value, form.controls['emailTS'].value);
-            if(form.controls['emailTS'].value == res.email && form.controls['passwordTS'].value == res.senha) 
-            {
                 this._cookieService.set('userName',`${res.nome}`);
                 console.log('Logado com sucesso!');
-            } 
-            else 
-            {
-                console.log('Falha no login, dados incorretos!');
-            }
         });
     }
 }
